@@ -31,19 +31,10 @@ app.set("port", port);
  */
 users(app);
 
-server.listen(3000, "192.168.1.2" || "localhost", function () {
+server.listen(3000, "192.168.1.4" || "localhost", function () {
   console.log("Aplicacion de NodeJS " + port + " Iniciada...");
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Ruta raiz del BackEnd");
-// });
-
-// app.get("/test", (req, res) => {
-//   res.send("Esta es la Ruta Test");
-// });
-
-// Error Handler
 app.use((err, req, res, next) => {
   console.log(err);
   res.status(err.status || 500).send(err.stack);

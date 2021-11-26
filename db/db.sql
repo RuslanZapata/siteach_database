@@ -1,5 +1,5 @@
 create table users(
-	id BIGSERIAL primary key,
+	idUser BIGSERIAL primary key,
 	username varchar(255) not null unique,
 	name varchar(255) not null,
 	lastname varchar(255) not null,
