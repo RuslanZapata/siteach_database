@@ -39,6 +39,26 @@ module.exports = {
     },
 
 
+    async registerCierre(req, res, next) {
+        try {
+            const sesion = req.body;
+            console.log('Emil duda de mí')
+            const data = await Sesion.createCierre(sesion);
+            return res.status(201).json({
+                success: true,
+                message: 'Se registro con exito la sesion',
+                data: data.idSesion
+            })
+        } catch (error) {
+            console.log(`Error: ${error}`)
+            return res.status(501).json({
+                success: false,
+                message: 'Hubo un error con el registro de la sesion',
+                error: error
+            })
+        }
+    },
+
     async actualizar(req, res, next) {
         try {
             const sesion = req.body;

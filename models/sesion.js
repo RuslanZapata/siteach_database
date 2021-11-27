@@ -52,6 +52,23 @@ Sesion.create = (sesion) => {
 }
 
 
+Sesion.createCierre = (sesion) => {
+    // const myPasswordHashed = crypto.createHash('md5').update(sesion.password).digest('hex');
+    // sesion.password = myPasswordHashed;
+
+    const sql = `insert into sesion(
+                    idUser,
+                    fecha,
+                    closinghora
+                )
+                values($1,now(),now()) returning idUser`;
+
+    return db.oneOrNone(sql, [
+        sesion.idUser,
+    ]);
+}
+
+
 Sesion.update = (sesion) => {
 
     const sql = `update sesion set closinghora = now()
