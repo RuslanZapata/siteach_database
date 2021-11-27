@@ -1,4 +1,5 @@
 const UsersController = require('../controllers/usersController');
+const SesionController = require('../controllers/sesionController');
 
 module.exports = (app) => {
     //GET
@@ -7,4 +8,5 @@ module.exports = (app) => {
     //POS
     app.post('/api/users/create', UsersController.register)
     app.post('/api/users/login', UsersController.login)
+    app.post('/api/session/create', SesionController.register)
 }

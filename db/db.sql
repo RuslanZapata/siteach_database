@@ -9,7 +9,6 @@ create table users(
 );
 
 
-
 insert into users(
 	username,
 	name,
@@ -23,4 +22,34 @@ values(
 	'123456'
 );
 
+
+
+create table sesion(
+	idSession BIGSERIAL primary key,
+	idUser bigint not null,
+	fecha date null,
+	starthora time null,
+	closinghora time null,
+	FOREIGN KEY (idUser) REFERENCES users (idUser)
+);
+
+
+insert into sesion(
+	idUser,
+	fecha,
+	starthora
+)
+values(
+	1,
+	NOW(),
+	NOW()
+);
+
+
+update sesion set closinghora = now()
+where idSession = 1
+
+
+
 select * from users
+select * from sesion
