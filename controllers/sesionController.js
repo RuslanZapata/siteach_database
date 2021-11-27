@@ -38,6 +38,26 @@ module.exports = {
         }
     },
 
+
+    async actualizar(req, res, next) {
+        try {
+            const sesion = req.body;
+            console.log('Emil duda de mí')
+            const data = await Sesion.update(sesion);
+            return res.status(201).json({
+                success: true,
+                message: 'Se registro con exito la hora de cierre',
+                data: data.idSesion
+            })
+        } catch (error) {
+            console.log(`Error: ${error}`)
+            return res.status(501).json({
+                success: false,
+                message: 'Hubo un error con el registro de la hora de cierre',
+                error: error
+            })
+        }
+    },
     // async login(req, res, next) {
     //     try {
     //         const username = req.body.username;

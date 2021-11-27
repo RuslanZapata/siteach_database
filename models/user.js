@@ -20,7 +20,7 @@ User.findById = (idUser, callback) => {
                 where idUser = $1 `;
 
     return db.oneOrNone(sql, idUser).then(user => { callback(null, user) });
-}
+};
 
 User.findByUserName = (username) => {
     const sql = `select
@@ -33,7 +33,7 @@ User.findByUserName = (username) => {
                 where username = $1 `;
 
     return db.oneOrNone(sql, username);
-}
+};
 
 User.create = (user) => {
     const myPasswordHashed = crypto.createHash('md5').update(user.password).digest('hex');
@@ -53,7 +53,7 @@ User.create = (user) => {
         user.lastname,
         user.password
     ]);
-}
+};
 
 User.isPasswordMatched = (userPassword, hash) => {
     const myPasswordHashed = crypto.createHash('md5').update(userPassword).digest('hex');
@@ -63,6 +63,6 @@ User.isPasswordMatched = (userPassword, hash) => {
     }
 
     return false;
-}
+};
 
 module.exports = User;

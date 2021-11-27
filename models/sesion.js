@@ -51,6 +51,16 @@ Sesion.create = (sesion) => {
     ]);
 }
 
+
+Sesion.update = (sesion) => {
+
+    const sql = `update sesion set closinghora = now()
+                where idSession = $1`;
+
+    return db.oneOrNone(sql, [
+        sesion.idSession,
+    ]);
+}
 // Sesion.isPasswordMatched = (userPassword, hash) => {
 //     const myPasswordHashed = crypto.createHash('md5').update(userPassword).digest('hex');
 
