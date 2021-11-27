@@ -24,6 +24,7 @@ User.findById = (idUser, callback) => {
 
 User.findByUserName = (username) => {
     const sql = `select
+                    idUser,
                     username, 
                     name, 
                     lastname, 
