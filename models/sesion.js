@@ -55,7 +55,8 @@ Sesion.create = (sesion) => {
 Sesion.update = (sesion) => {
 
     const sql = `update sesion set closinghora = now()
-                where idSession = $1`;
+                where idSession = $1
+                returning idUser`;
 
     return db.oneOrNone(sql, [
         sesion.idSession,
