@@ -59,7 +59,7 @@ module.exports = {
                 }, keys.secretOrKey, {});
 
                 const data = {
-                    idUser: myUser.idUser,
+                    idUser: myUser.iduser,
                     username: myUser.username,
                     name: myUser.name,
                     lastname: myUser.lastname,
