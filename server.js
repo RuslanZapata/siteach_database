@@ -10,8 +10,6 @@ const cors = require("cors");
  */
 const users = require('./routes/usersRoutes')
 
-
-
 const port = process.env.PORT || 3000;
 
 app.use(logger("dev"));
@@ -31,7 +29,7 @@ app.set("port", port);
  */
 users(app);
 
-server.listen(3000, "192.168.1.4" || "localhost", function () {
+server.listen(port, function () {
   console.log("Aplicacion de NodeJS " + port + " Iniciada...");
 });
 
