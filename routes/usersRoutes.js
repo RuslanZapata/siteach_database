@@ -9,5 +9,5 @@ module.exports = (app) => {
     app.post('/api/users/create', UsersController.register)
     app.post('/api/users/login', UsersController.login)
     app.post('/api/session/create', SesionController.register)
-    app.put('/api/session/update', SesionController.actualizar)
+    app.post('/api/session/update', SesionController.actualizar)
 }
